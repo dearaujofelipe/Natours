@@ -1,5 +1,3 @@
-const fs = require('fs');
-
 exports.getAllUsers = (req, res) => {
   res.status(500).json({ status: 'err', message: 'route not yet defined' });
 };
