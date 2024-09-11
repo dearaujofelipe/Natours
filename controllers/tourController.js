@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 const tours = JSON.parse(
-  fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json`)
+  fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json`),
 );
 
 exports.checkID = (req, res, next, val) => {
@@ -40,7 +40,7 @@ exports.createTour = (req, res) => {
     JSON.stringify(tours),
     (err) => {
       res.status(201).json({ status: 'success', data: { tour: newTour } });
-    }
+    },
   );
 };
 
