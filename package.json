@@ -4,7 +4,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "nodemon server.js",
+    "start": "nodemon server.js",
     "start:prod": "NODE_ENV=production nodemon server.js"
   },
   "keywords": [],
@@ -22,6 +22,7 @@
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.35.2",
     "express": "^4.19.2",
+    "mongoose": "^8.6.2",
     "morgan": "^1.10.0",
     "prettier": "^3.3.3"
   },
