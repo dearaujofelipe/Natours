@@ -9,7 +9,7 @@ const DB = process.env.DATABASE.replace(
 );
 
 mongoose
-  .connect(DB) // No need to pass any options
+  .connect(DB)
   .then(() => console.log('DB connection success'))
   .catch((err) => console.log('DB connection error: ', err));
 
