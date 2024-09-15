@@ -7,7 +7,7 @@ exports.getAllTours = async (req, res) => {
     res.status(200).json({
       status: 'success',
       results: tours.length,
-      data: { tours: tours },
+      data: { tours },
     });
   } catch (error) {
     res.status(404).json({
@@ -28,7 +28,7 @@ exports.createTour = async (req, res) => {
   } catch (err) {
     res.status(400).json({
       status: 'fail',
-      message: 'invalid data set',
+      message: err,
     });
   }
 };
