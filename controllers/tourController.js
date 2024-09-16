@@ -137,9 +137,9 @@ exports.getTourStats = async (req, res) => {
       {
         $sort: { avgPrice: 1 }, // 1 means sort ascending
       },
-      {
-        $match: { _id: { $ne: 'EASY' } }, // ne = not equal , filtering out easy tours
-      },
+      // {
+      //   $match: { _id: { $ne: 'EASY' } }, // ne = not equal , filtering out easy tours
+      // },
     ]);
 
     res.status(200).json({
