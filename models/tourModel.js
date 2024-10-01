@@ -98,6 +98,14 @@ const tourSchema = new mongoose.Schema(
         day: Number,
       },
     ],
+    // guides: Array, EMBEDDING GUIDES
+    // REFERENCING GUIDES BELOW
+    guides: [
+      {
+        type: mongoose.Schema.ObjectId,
+        ref: 'User',
+      },
+    ],
   },
   {
     // schema options object
@@ -121,6 +129,24 @@ tourSchema.pre('save', function (next) {
 // tourSchema.pre('find', function (next) { /^find/ prevents get your by id call so tour keeps secret
 tourSchema.pre(/^find/, function (next) {
   this.find({ secretTour: { $ne: true } });
+  next();
+});
+
+// MODELLING DATA - EMBEDDING GUIDES INTO TOURS , in this case Parent referencing is better
+// tourSchema.pre('save', async function (next) {
+//   const guidesPromises = this.guides.map(async (id) => await User.findById(id));
+//   this.guides = await Promise.all(guidesPromises);
+
+//   next();
+// });
+
+// REFERENCING MIDDLEWARE that excludes __v and passwordChangedAt of the query result, middleware placed here so i dont have to use .populate... in all the controllers that need it
+tourSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: 'guides',
+    select: '-__v -passwordChangedAt',
+  });
+
   next();
 });
 
