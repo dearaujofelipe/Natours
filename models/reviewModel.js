@@ -28,7 +28,7 @@ const reviewSchema = new mongoose.Schema(
     },
   },
   {
-    // schema options object for virtual properties(field that is not store in the db)
+    // schema options object for virtual properties(field that are not store in the db)
     toJSON: { virtuals: true },
     toObject: { virtuals: true },
   },
