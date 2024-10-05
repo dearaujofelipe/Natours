@@ -119,6 +119,13 @@ tourSchema.virtual('durationWeeks').get(function () {
   return this.duration / 7;
 });
 
+// virtual populate reviews into tour
+tourSchema.virtual('reviews', {
+  ref: 'Review',
+  foreignField: 'tour',
+  localField: '_id',
+});
+
 //mongoose document middlware, runs befores the .save() and .create() not update()
 tourSchema.pre('save', function (next) {
   this.slug = slugify(this.name, { lower: true });
