@@ -54,3 +54,6 @@ reviewSchema.pre(/^find/, function (next) {
 const Review = mongoose.model('Review', reviewSchema);
 
 module.exports = Review;
+
+// POST /tour/tourID/reviews , nested route
+// GET /tour/tourid/reviews/reviewID , nested route
